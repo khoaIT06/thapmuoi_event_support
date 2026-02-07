@@ -51,7 +51,7 @@ function runMarquee(el) {
     const textWidth = el.scrollWidth;
     const screenWidth = window.innerWidth;
 
-    const speed = 120;
+    const speed = 260;
     const distance = textWidth + screenWidth;
     const duration = distance / speed;
 
