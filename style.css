@@ -251,8 +251,8 @@ body.display-page {
     top: 0;
     background: linear-gradient(
         90deg,
-        rgba(255,0,128,1),
-        rgba(128,0,255,1)
+        rgba(214, 234, 248, 1),
+        rgba(232, 244, 253, 1)
     );
 }
 
@@ -260,8 +260,8 @@ body.display-page {
     bottom: 0;
     background: linear-gradient(
         90deg,
-        rgba(0, 64, 128, 0.95),
-        rgba(0, 102, 204, 0.95)
+        rgba(200, 230, 255, 1),
+        rgba(220, 240, 255, 1)
     );
 }
 
@@ -270,10 +270,15 @@ body.display-page {
     white-space: nowrap;
     font-size: 2rem;
     font-weight: bold;
-    color: white;
+    color: #0033cc;
+    text-shadow: 0 2px 6px rgba(255,255,255,0.7);
     padding-left: 100%;
-    animation: marquee 25s linear infinite;
+    animation-name: marquee;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: 20s;
 }
+
 
 /* ===== ANIMATION ===== */
 @keyframes marquee {

@@ -21,28 +21,42 @@ async function loadSupporters() {
     } catch (e) {}
 }
 
+let lastText = '';
+
 function updateMarquee() {
+    let text = '';
+
     if (supporters.length === 0) {
-        const t = 'CHÀO MỪNG ĐẾN VỚI SỰ KIỆN • CẢM ƠN SỰ ỦNG HỘ QUÝ BÁU •';
-        topMarquee.textContent = t;
-        bottomMarquee.textContent = t;
-        runMarquee(topMarquee);
-        runMarquee(bottomMarquee);
-        return;
+        text = 'Chào mừng Quý mạnh thường quân, nhà tài trợ, Quý Thầy cô, học sinh của trường THPT Tháp Mười';
+    } else {
+        supporters.slice(0, 50).forEach(s => {
+            text += `${s.name} - ${formatCurrency(s.amount)} • `;
+        });
     }
 
-    let text = '';
-    supporters.slice(0, 50).forEach(s => {
-        text += `${s.name} - ${formatCurrency(s.amount)} • `;
-    });
+    if (text === lastText) return;
 
+    lastText = text;
     topMarquee.textContent = text;
     bottomMarquee.textContent = text;
-
     runMarquee(topMarquee);
     runMarquee(bottomMarquee);
 }
 
+
+function runMarquee(el) {
+    el.style.animation = 'none';
+    el.offsetHeight;
+
+    const textWidth = el.scrollWidth;
+    const screenWidth = window.innerWidth;
+
+    const speed = 120;
+    const distance = textWidth + screenWidth;
+    const duration = distance / speed;
+
+    el.style.animation = `marquee ${duration}s linear infinite`;
+}
 
 function formatCurrency(amount) {
     return amount.toLocaleString('vi-VN') + ' VND';
