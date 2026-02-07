@@ -30,7 +30,7 @@ function updateMarquee() {
         text = 'Chào mừng Quý mạnh thường quân, nhà tài trợ, Quý Thầy cô, học sinh của trường THPT Tháp Mười';
     } else {
         supporters.slice(0, 50).forEach(s => {
-            text += `${s.name} - ${formatCurrency(s.amount)} • `;
+            text += `${s.name} - ${formatCurrency(s.amount)} ; `;
         });
     }
 
